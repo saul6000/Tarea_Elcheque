@@ -72,21 +72,33 @@ namespace ProyectoVectores.clases
         public static string getmillones(int num)
         {
             string aux = " ";
-            if (num < 10000000 && num % 1000000 > 0)
-            {
-                aux = getunidades(num / 1000000) + complementos[2] + getcentenas((num / 1000) % 1000) + complementos[0] + getcentenas(num % 1000);
-            }
-            else if (num % 1000000 == 0)
-            {
-                aux = getunidades(num / 1000000) + complementos[2];
-            }
+
             if (num == 1000000)
             {
                 aux = complementos[1];
             }
-            else if (num > 1000000 && num < 2000000)
+
+            else if (num % 1000000 == 0)
+            {
+
+                aux = getunidades(num / 1000000) + complementos[2];
+            }
+         if (num > 1000000 && num <2000000 && num % 1000000 >999)
             {
                 aux = complementos[1] + getcentenas((num / 1000) % 1000) + complementos[0] + getcentenas(num % 1000);
+            }
+         else
+            {
+                aux = complementos[1] + getcentenas((num / 1000) % 1000) + getcentenas(num % 1000);
+            }
+            
+            if (num >=2000000 && num <10000000 && num % 1000000 > 999)
+            {
+                aux = getunidades(num / 1000000) + complementos[2] + getcentenas((num / 1000) % 1000) + complementos[0] + getcentenas(num % 1000);
+            }
+            else if (num >= 2000000 && num < 10000000 && num % 1000000 < 999)
+            {
+                aux = getunidades(num / 1000000) + complementos[2] + getcentenas((num / 1000) % 1000)  + getcentenas(num % 1000);
             }
             return aux;
         }
