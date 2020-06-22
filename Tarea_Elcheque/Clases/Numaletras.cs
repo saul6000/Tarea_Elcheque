@@ -137,7 +137,7 @@ namespace ProyectoVectores.clases
             }
             if (num == 0)
             {
-                aux = "cero";
+                aux = "Cero";
             }
             return aux;
         }
